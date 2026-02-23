@@ -1,0 +1,13 @@
+{
+  "frontend/src/pages/LocationsPage.tsx": "Public page displaying all fuel station branch locations with address information in a card grid layout.",
+  "frontend/src/components/BranchLocationCard.tsx": "Card component displaying individual branch location details including name, address, and branch ID with map pin icon.",
+  "frontend/src/pages/PublicPricesPage.tsx": "Public page showing current fuel prices for petrol and diesel at all branch locations without requiring authentication.",
+  "frontend/src/components/PriceDisplayCard.tsx": "Card component displaying fuel price with large typography, fuel type icon, and color-coded styling for petrol (amber) and diesel (green).",
+  "frontend/src/pages/PrebookingPage.tsx": "Authenticated page for managing fuel prebookings with form for creating new reservations and list of existing bookings.",
+  "frontend/src/components/CreatePrebookingForm.tsx": "Form component for creating fuel prebookings with customer details, fuel type, quantity, and delivery date inputs.",
+  "frontend/src/components/PrebookingList.tsx": "Table component displaying all prebookings with customer info, fuel details, and status dropdown for updating booking status.",
+  "frontend/src/components/StockAlerts.tsx": "Alert banner component that displays prominent warnings when fuel stock levels fall below configured thresholds, with proper TypeScript typing for alert items.",
+  "frontend/src/components/BranchList.tsx": "Card grid component displaying all branches with their location, stock levels, and current fuel prices.",
+  "frontend/src/index.css": "Global CSS with OKLCH color system using warm earth tones (amber/orange primary, green accents) suitable for fuel industry, supporting both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color palette using warm earth tones, custom fonts (Inter, Poppins), and extended theme for fuel station management UI."
+}

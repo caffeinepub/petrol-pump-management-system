@@ -1,0 +1,369 @@
+{
+  "kind": "build_request",
+  "title": "Create petrol pump management and inventory system",
+  "projectName": "Fuel Station Manager",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement fuel sales recording system for petrol and diesel with automatic stock deduction upon each sale transaction",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "पेट्रोल, डीज़ल की बिक्री का रिकॉर्ड",
+          "ऑटोमेटिक स्टॉक अपडेट"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sales transactions record fuel type (petrol/diesel), quantity, and price",
+        "Stock levels automatically decrease when a sale is recorded",
+        "Sales history is persisted and queryable"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create real-time inventory monitoring showing current fuel levels in each tank with visual indicators",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "टैंक में कितना ईंधन बचा है उसका रियल-टाइम डेटा"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Display current fuel quantity for each tank in real-time",
+        "Show tank capacity and percentage filled",
+        "Provide visual gauges or progress bars for fuel levels"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement automated re-order alert system that triggers notifications when fuel stock falls below configured threshold levels",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "री-ऑर्डर अलर्ट जब स्टॉक कम हो जाए"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Allow configuration of minimum stock thresholds per fuel type",
+        "Generate alerts when stock drops below threshold",
+        "Display active alerts prominently in the dashboard"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build billing system supporting multiple payment methods including cash, card, UPI, and wallet payments with payment tracking",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "कैश, कार्ड, UPI, वॉलेट पेमेंट सपोर्ट"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Record payment method for each transaction (cash, card, UPI, wallet)",
+        "Calculate total amount including taxes",
+        "Track payment status and reconciliation"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create digital receipt generation system with transaction details, fuel type, quantity, price, and payment information",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "डिजिटल रसीदें"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generate receipts containing transaction date, fuel type, quantity, price, and payment method",
+        "Display receipts in a printable format",
+        "Allow downloading or viewing past receipts"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement employee management system with shift timing records and attendance tracking functionality",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "शिफ्ट टाइमिंग और अटेंडेंस ट्रैकिंग"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Record employee shift start and end times",
+        "Track attendance with check-in/check-out functionality",
+        "Maintain employee roster with shift assignments"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create employee sales performance reporting showing individual sales metrics and targets",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "सेल्स परफॉर्मेंस रिपोर्ट"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Track sales per employee per shift",
+        "Display sales volume and revenue by employee",
+        "Generate performance comparison reports"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build customer loyalty program with points accumulation system based on purchase volume and value",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "पॉइंट्स या कैशबैक सिस्टम"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Award points to customers based on fuel purchases",
+        "Track customer point balances",
+        "Allow redemption of points for discounts or rewards"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement membership card management system for customer loyalty program with unique customer IDs and reward tracking",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "मेंबरशिप कार्ड या ऐप आधारित रिवार्ड्स"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Register customers with unique membership IDs",
+        "Link loyalty points to customer accounts",
+        "Display customer membership status and rewards"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create comprehensive reporting dashboard with daily, weekly, and monthly sales reports including fuel volumes and revenue",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "डेली, वीकली और मंथली सेल्स रिपोर्ट"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generate sales reports for selectable date ranges (daily, weekly, monthly)",
+        "Display total fuel sold by type and total revenue",
+        "Provide export functionality for reports"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement profit and loss analysis reporting showing revenue, costs, and net profit margins",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "प्रॉफिट और लॉस एनालिसिस"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calculate revenue from fuel sales",
+        "Track operational costs and expenses",
+        "Display profit margins and net profit/loss"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Build tax and GST reporting module calculating and displaying tax liabilities based on sales data",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "टैक्स और GST रिपोर्टिंग"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calculate GST on fuel sales transactions",
+        "Generate tax reports for specified periods",
+        "Display tax breakdowns by category"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create fuel price management system allowing manual updates of petrol and diesel prices that apply to future transactions",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "Fuel Price Update Integration (ऑटोमेटिक प्राइस अपडेट)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin interface to update fuel prices",
+        "Price changes take effect immediately for new transactions",
+        "Maintain price history for auditing"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Implement emergency alert system for critical events such as fuel leakage or safety issues with prominent notifications",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "Emergency Alerts (लीकेज या सेफ्टी इश्यू की नोटिफिकेशन)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Allow manual triggering of emergency alerts",
+        "Display alerts prominently across the application",
+        "Log alert history with timestamps and descriptions"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Build multi-branch management functionality allowing owners to manage multiple petrol pump locations from a single interface",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "Multi-Branch Management (अगर मालिक के पास कई पंप हों)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Register and manage multiple pump branches",
+        "View consolidated reports across all branches",
+        "Switch between branch views in the interface"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Create pump location finder feature showing nearby petrol pumps on a map with address and distance information",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "नज़दीकी पंप लोकेशन और नेविगेशन"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Display list of pump branches with addresses",
+        "Show distance information for each branch",
+        "Provide visual map or location markers"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Implement public fuel price display showing current petrol and diesel prices at each pump location",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "फ्यूल प्राइस चेक करने का विकल्प"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Display current fuel prices publicly without authentication",
+        "Show prices for all fuel types",
+        "Update prices when admin changes them"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Build pre-booking and reservation system for large vehicle fuel orders such as trucks and buses",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ],
+        "quotes": [
+          "प्री-बुकिंग या रिज़र्वेशन (जैसे बड़े ट्रक/बस के लिए)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Allow customers to create fuel reservations with vehicle details",
+        "Specify fuel type, quantity, and preferred time slot",
+        "Display upcoming reservations in staff dashboard"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Design a cohesive visual theme for the petrol station management application with a professional color scheme (avoiding blue and purple), clean typography, and industry-appropriate styling that works across dashboards, reports, and customer-facing interfaces",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "user-message-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color palette applied throughout the application",
+        "Professional typography suitable for business management software",
+        "Layout and UI patterns appropriate for fuel station operations"
+      ]
+    }
+  ],
+  "constraints": [
+    "No external SMS, WhatsApp, or Email integration APIs supported (digital receipts must be displayed/downloadable only)",
+    "No real GPS/maps API integration supported (pump location display must use static data)",
+    "No real-time IoT sensor integration supported (IoT data entry must be manual or simulated)",
+    "No external fuel price API integration (prices must be manually updated by admin)"
+  ],
+  "nonGoals": [
+    "Real-time SMS/WhatsApp/Email delivery of receipts",
+    "Live GPS tracking or navigation",
+    "Automatic IoT sensor data ingestion from hardware",
+    "Automatic fuel price updates from external APIs",
+    "Third-party payment gateway integration"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern fuel pump icon for the application logo (fuel-pump-logo.dim_256x256.png)",
+      "Dashboard hero background with abstract fuel station theme in warm earth tones (dashboard-hero.dim_1920x400.png)",
+      "Fuel tank gauge illustration for inventory monitoring (fuel-gauge.dim_400x400.png)"
+    ],
+    "edits": []
+  }
+}

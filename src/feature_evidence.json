@@ -1,0 +1,414 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-fuel-sales-recording-system-for-petrol-and-diesel-with-automatic-stock-deduction-upon-each-sale-transaction",
+      "featureTitle": "Implement fuel sales recording system for petrol and diesel with automatic stock deduction upon each sale transaction",
+      "files": [
+        "frontend/src/components/SalesForm.tsx",
+        "frontend/src/components/SalesHistory.tsx",
+        "frontend/src/pages/SalesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-real-time-inventory-monitoring-showing-current-fuel-levels-in-each-tank-with-visual-indicators",
+      "featureTitle": "Create real-time inventory monitoring showing current fuel levels in each tank with visual indicators",
+      "files": [
+        "frontend/src/components/FuelGauge.tsx",
+        "frontend/src/pages/InventoryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-automated-re-order-alert-system-that-triggers-notifications-when-fuel-stock-falls-below-configured-threshold-levels",
+      "featureTitle": "Implement automated re-order alert system that triggers notifications when fuel stock falls below configured threshold levels",
+      "files": [
+        "frontend/src/components/StockAlerts.tsx",
+        "frontend/src/pages/InventoryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-billing-system-supporting-multiple-payment-methods-including-cash-card-upi-and-wallet-payments-with-payment-tracking",
+      "featureTitle": "Build billing system supporting multiple payment methods including cash, card, UPI, and wallet payments with payment tracking",
+      "files": [
+        "frontend/src/components/PaymentSummary.tsx",
+        "frontend/src/components/SalesForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-digital-receipt-generation-system-with-transaction-details-fuel-type-quantity-price-and-payment-information",
+      "featureTitle": "Create digital receipt generation system with transaction details, fuel type, quantity, price, and payment information",
+      "files": [
+        "frontend/src/components/Receipt.tsx",
+        "frontend/src/components/ReceiptModal.tsx",
+        "frontend/src/pages/SalesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-employee-management-system-with-shift-timing-records-and-attendance-tracking-functionality",
+      "featureTitle": "Implement employee management system with shift timing records and attendance tracking functionality",
+      "files": [
+        "frontend/src/components/EmployeeList.tsx",
+        "frontend/src/pages/EmployeesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-employee-sales-performance-reporting-showing-individual-sales-metrics-and-targets",
+      "featureTitle": "Create employee sales performance reporting showing individual sales metrics and targets",
+      "files": [
+        "frontend/src/components/EmployeePerformanceCard.tsx",
+        "frontend/src/pages/PerformanceReportsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-customer-loyalty-program-with-points-accumulation-system-based-on-purchase-volume-and-value",
+      "featureTitle": "Build customer loyalty program with points accumulation system based on purchase volume and value",
+      "files": [
+        "frontend/src/components/LoyaltyMemberCard.tsx",
+        "frontend/src/components/PointsTransactionModal.tsx",
+        "frontend/src/pages/LoyaltyPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-membership-card-management-system-for-customer-loyalty-program-with-unique-customer-ids-and-reward-tracking",
+      "featureTitle": "Implement membership card management system for customer loyalty program with unique customer IDs and reward tracking",
+      "files": [
+        "frontend/src/components/RegisterMemberForm.tsx",
+        "frontend/src/pages/LoyaltyPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-comprehensive-reporting-dashboard-with-daily-weekly-and-monthly-sales-reports-including-fuel-volumes-and-revenue",
+      "featureTitle": "Create comprehensive reporting dashboard with daily, weekly, and monthly sales reports including fuel volumes and revenue",
+      "files": [
+        "frontend/src/components/SalesReportSummary.tsx",
+        "frontend/src/pages/ReportsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-profit-and-loss-analysis-reporting-showing-revenue-costs-and-net-profit-margins",
+      "featureTitle": "Implement profit and loss analysis reporting showing revenue, costs, and net profit margins",
+      "files": [
+        "frontend/src/components/ProfitLossStatement.tsx",
+        "frontend/src/pages/ProfitLossPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-tax-and-gst-reporting-module-calculating-and-displaying-tax-liabilities-based-on-sales-data",
+      "featureTitle": "Build tax and GST reporting module calculating and displaying tax liabilities based on sales data",
+      "files": [
+        "frontend/src/components/GSTCalculator.tsx",
+        "frontend/src/pages/TaxReportsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-fuel-price-management-system-allowing-manual-updates-of-petrol-and-diesel-prices-that-apply-to-future-transactions",
+      "featureTitle": "Create fuel price management system allowing manual updates of petrol and diesel prices that apply to future transactions",
+      "files": [
+        "frontend/src/components/PriceUpdateForm.tsx",
+        "frontend/src/pages/PriceManagementPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-emergency-alert-system-for-critical-events-such-as-fuel-leakage-or-safety-issues-with-prominent-notifications",
+      "featureTitle": "Implement emergency alert system for critical events such as fuel leakage or safety issues with prominent notifications",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/EmergencyAlert.tsx",
+        "frontend/src/contexts/EmergencyAlertContext.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-multi-branch-management-functionality-allowing-owners-to-manage-multiple-petrol-pump-locations-from-a-single-interface",
+      "featureTitle": "Build multi-branch management functionality allowing owners to manage multiple petrol pump locations from a single interface",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BranchSelector.tsx",
+        "frontend/src/components/CreateBranchForm.tsx",
+        "frontend/src/contexts/BranchContext.tsx",
+        "frontend/src/pages/BranchesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-pump-location-finder-feature-showing-nearby-petrol-pumps-on-a-map-with-address-and-distance-information",
+      "featureTitle": "Create pump location finder feature showing nearby petrol pumps on a map with address and distance information",
+      "files": [
+        "frontend/src/components/BranchLocationCard.tsx",
+        "frontend/src/pages/LocationsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-public-fuel-price-display-showing-current-petrol-and-diesel-prices-at-each-pump-location",
+      "featureTitle": "Implement public fuel price display showing current petrol and diesel prices at each pump location",
+      "files": [
+        "frontend/src/components/PriceDisplayCard.tsx",
+        "frontend/src/pages/PublicPricesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-pre-booking-and-reservation-system-for-large-vehicle-fuel-orders-such-as-trucks-and-buses",
+      "featureTitle": "Build pre-booking and reservation system for large vehicle fuel orders such as trucks and buses",
+      "files": [
+        "frontend/src/components/CreatePrebookingForm.tsx",
+        "frontend/src/components/PrebookingList.tsx",
+        "frontend/src/pages/PrebookingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-cohesive-visual-theme-for-the-petrol-station-management-application-with-a-professional-color-scheme-avoiding-blue-and-purple-clean-typography-and-industry-appropriate-styling-that-works-across-dashboards-reports-and-customer-facing-interfaces",
+      "featureTitle": "Design a cohesive visual theme for the petrol station management application with a professional color scheme (avoiding blue and purple), clean typography, and industry-appropriate styling that works across dashboards, reports, and customer-facing interfaces",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

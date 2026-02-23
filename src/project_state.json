@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Petrol pump management and inventory system with fuel sales tracking, real-time inventory monitoring, billing with multiple payment options, employee management, customer loyalty program, reporting/analytics, and advanced features including IoT integration and multi-branch support",
+  "architectural_notes": [
+    "Multi-payment gateway integration required (Cash, Card, UPI, Wallet)",
+    "Real-time inventory tracking system with tank level sensors",
+    "Multi-channel notification system (SMS/WhatsApp/Email) for receipts and alerts",
+    "IoT device integration layer for smart meters and sensors",
+    "Multi-branch architecture to support centralized management",
+    "Customer-facing mobile app for location, pricing, and booking features",
+    "GST compliance and tax reporting module"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Modern fuel pump icon for the application logo (fuel-pump-logo.dim_256x256.png)\n- Dashboard hero background with abstract fuel station theme in warm earth tones (dashboard-hero.dim_1920x400.png)\n- Fuel tank gauge illustration for inventory monitoring (fuel-gauge.dim_400x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-fuel-sales-recording-system-for-petrol-and-diesel-with-automatic-stock-deduction-upon-each-sale-transaction",
+      "title": "Implement fuel sales recording system for petrol and diesel with automatic stock deduction upon each sale transaction",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-real-time-inventory-monitoring-showing-current-fuel-levels-in-each-tank-with-visual-indicators",
+      "title": "Create real-time inventory monitoring showing current fuel levels in each tank with visual indicators",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-automated-re-order-alert-system-that-triggers-notifications-when-fuel-stock-falls-below-configured-threshold-levels",
+      "title": "Implement automated re-order alert system that triggers notifications when fuel stock falls below configured threshold levels",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-billing-system-supporting-multiple-payment-methods-including-cash-card-upi-and-wallet-payments-with-payment-tracking",
+      "title": "Build billing system supporting multiple payment methods including cash, card, UPI, and wallet payments with payment tracking",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-digital-receipt-generation-system-with-transaction-details-fuel-type-quantity-price-and-payment-information",
+      "title": "Create digital receipt generation system with transaction details, fuel type, quantity, price, and payment information",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-employee-management-system-with-shift-timing-records-and-attendance-tracking-functionality",
+      "title": "Implement employee management system with shift timing records and attendance tracking functionality",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-employee-sales-performance-reporting-showing-individual-sales-metrics-and-targets",
+      "title": "Create employee sales performance reporting showing individual sales metrics and targets",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-customer-loyalty-program-with-points-accumulation-system-based-on-purchase-volume-and-value",
+      "title": "Build customer loyalty program with points accumulation system based on purchase volume and value",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-membership-card-management-system-for-customer-loyalty-program-with-unique-customer-ids-and-reward-tracking",
+      "title": "Implement membership card management system for customer loyalty program with unique customer IDs and reward tracking",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-comprehensive-reporting-dashboard-with-daily-weekly-and-monthly-sales-reports-including-fuel-volumes-and-revenue",
+      "title": "Create comprehensive reporting dashboard with daily, weekly, and monthly sales reports including fuel volumes and revenue",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-profit-and-loss-analysis-reporting-showing-revenue-costs-and-net-profit-margins",
+      "title": "Implement profit and loss analysis reporting showing revenue, costs, and net profit margins",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-tax-and-gst-reporting-module-calculating-and-displaying-tax-liabilities-based-on-sales-data",
+      "title": "Build tax and GST reporting module calculating and displaying tax liabilities based on sales data",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-fuel-price-management-system-allowing-manual-updates-of-petrol-and-diesel-prices-that-apply-to-future-transactions",
+      "title": "Create fuel price management system allowing manual updates of petrol and diesel prices that apply to future transactions",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-emergency-alert-system-for-critical-events-such-as-fuel-leakage-or-safety-issues-with-prominent-notifications",
+      "title": "Implement emergency alert system for critical events such as fuel leakage or safety issues with prominent notifications",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-multi-branch-management-functionality-allowing-owners-to-manage-multiple-petrol-pump-locations-from-a-single-interface",
+      "title": "Build multi-branch management functionality allowing owners to manage multiple petrol pump locations from a single interface",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-pump-location-finder-feature-showing-nearby-petrol-pumps-on-a-map-with-address-and-distance-information",
+      "title": "Create pump location finder feature showing nearby petrol pumps on a map with address and distance information",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-public-fuel-price-display-showing-current-petrol-and-diesel-prices-at-each-pump-location",
+      "title": "Implement public fuel price display showing current petrol and diesel prices at each pump location",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-pre-booking-and-reservation-system-for-large-vehicle-fuel-orders-such-as-trucks-and-buses",
+      "title": "Build pre-booking and reservation system for large vehicle fuel orders such as trucks and buses",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cohesive-visual-theme-for-the-petrol-station-management-application-with-a-professional-color-scheme-avoiding-blue-and-purple-clean-typography-and-industry-appropriate-styling-that-works-across-dashboards-reports-and-customer-facing-interfaces",
+      "title": "Design a cohesive visual theme for the petrol station management application with a professional color scheme (avoiding blue and purple), clean typography, and industry-appropriate styling that works across dashboards, reports, and customer-facing interfaces",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Fuel sales management with petrol/diesel sales recording and automatic stock updates",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Inventory & stock monitoring with real-time tank fuel levels and re-order alerts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Billing system with cash, card, UPI, wallet payment support and digital receipts (SMS/WhatsApp/Email)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Employee management with shift timing, attendance tracking, and sales performance reports",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Customer loyalty program with points/cashback system and membership cards or app-based rewards",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Reporting and analytics with daily/weekly/monthly sales reports, profit/loss analysis, and tax/GST reporting",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Fuel price update integration with automatic price updates",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Emergency alerts for leakage or safety issues",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Multi-branch management for owners with multiple pumps",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "IoT integration with smart meters and sensors for data collection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Customer features: nearby pump location/navigation, fuel price checking, and pre-booking/reservation for large vehicles",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Petrol Pump Management System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

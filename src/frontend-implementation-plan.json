@@ -1,0 +1,531 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fuel Station Manager - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement fuel sales recording UI with automatic stock deduction display",
+      "acceptanceCriteria": [
+        "Sales transactions record fuel type (petrol/diesel), quantity, and price",
+        "Stock levels automatically decrease when a sale is recorded",
+        "Sales history is persisted and queryable"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SalesPage.tsx",
+          "operation": "create",
+          "description": "Create sales recording interface allowing staff to record fuel sales with fuel type selection, quantity input, payment method, and automatic price calculation. Display real-time stock levels after each sale. Use the authorization component to restrict access to authenticated users only."
+        },
+        {
+          "path": "frontend/src/components/SalesForm.tsx",
+          "operation": "create",
+          "description": "Create form component for recording individual sales with dropdowns for fuel type (petrol/diesel) and payment method, numeric input for quantity, calculated total display, and submit button. Call backend recordSale method on submission."
+        },
+        {
+          "path": "frontend/src/components/SalesHistory.tsx",
+          "operation": "create",
+          "description": "Create table component displaying sales history with columns for timestamp, fuel type, quantity, payment method, employee, and total amount. Fetch data using getBranchSales backend method. Include filtering by date range and fuel type."
+        },
+        {
+          "path": "frontend/src/hooks/useSales.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for sales operations: useRecordSale mutation for creating sales, useGetBranchSales query for fetching sales history. Handle loading states, errors, and cache invalidation after mutations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create real-time inventory monitoring UI with visual fuel level indicators",
+      "acceptanceCriteria": [
+        "Display current fuel quantity for each tank in real-time",
+        "Show tank capacity and percentage filled",
+        "Provide visual gauges or progress bars for fuel levels"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/InventoryPage.tsx",
+          "operation": "create",
+          "description": "Create inventory monitoring dashboard displaying current fuel levels for selected branch. Show petrol and diesel tanks with visual gauges using the generated fuel-gauge.dim_400x400.png image from frontend/public/assets/generated/fuel-gauge.dim_400x400.png. Display numeric values, percentages, and low stock warnings. Use authorization component to ensure only authenticated users can access."
+        },
+        {
+          "path": "frontend/src/components/FuelGauge.tsx",
+          "operation": "create",
+          "description": "Create visual fuel gauge component showing fuel level as a circular or vertical progress indicator with percentage text overlay. Accept props for current level, capacity, fuel type, and threshold. Display warning styling when below threshold. Reference the fuel gauge illustration from frontend/public/assets/generated/fuel-gauge.dim_400x400.png for visual consistency."
+        },
+        {
+          "path": "frontend/src/hooks/useInventory.ts",
+          "operation": "create",
+          "description": "Create React Query hook useGetBranchStock for fetching current stock levels using getBranchStockLevels backend method. Enable automatic refetching on interval for real-time updates."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement automated re-order alert UI displaying low stock warnings",
+      "acceptanceCriteria": [
+        "Allow configuration of minimum stock thresholds per fuel type",
+        "Generate alerts when stock drops below threshold",
+        "Display active alerts prominently in the dashboard"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/StockAlerts.tsx",
+          "operation": "create",
+          "description": "Create alert banner component that displays prominent warnings when fuel stock falls below configured thresholds. Calculate alerts on frontend by comparing current stock levels from useGetBranchStock with branch lowStockThreshold. Show fuel type, current level, and threshold. Position prominently at top of inventory or dashboard pages."
+        },
+        {
+          "path": "frontend/src/pages/InventoryPage.tsx",
+          "operation": "modify",
+          "description": "Integrate StockAlerts component at the top of the inventory page to display active low-stock warnings prominently. Pass current stock data and threshold configuration to the alerts component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build billing UI supporting multiple payment methods with payment tracking",
+      "acceptanceCriteria": [
+        "Record payment method for each transaction (cash, card, UPI, wallet)",
+        "Calculate total amount including taxes",
+        "Track payment status and reconciliation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SalesForm.tsx",
+          "operation": "modify",
+          "description": "Add payment method selection dropdown to sales form supporting cash, card, UPI, and wallet options. Display calculated total including GST based on quantity and current fuel price. Show tax breakdown before submission."
+        },
+        {
+          "path": "frontend/src/components/PaymentSummary.tsx",
+          "operation": "create",
+          "description": "Create component displaying itemized payment breakdown including base amount, GST calculation, and total. Show payment method selection and confirmation. Accept fuel type, quantity, and unit price as props and calculate totals with tax."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create digital receipt generation UI with transaction details",
+      "acceptanceCriteria": [
+        "Generate receipts containing transaction date, fuel type, quantity, price, and payment method",
+        "Display receipts in a printable format",
+        "Allow downloading or viewing past receipts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Receipt.tsx",
+          "operation": "create",
+          "description": "Create printable receipt component displaying transaction details including timestamp, sale ID, fuel type, quantity, unit price, total amount, GST breakdown, payment method, branch name, and employee. Format for printing with proper styling. Accept Sale object as props."
+        },
+        {
+          "path": "frontend/src/components/ReceiptModal.tsx",
+          "operation": "create",
+          "description": "Create modal dialog component wrapping Receipt component with print and close buttons. Provide print functionality using window.print() and ensure print-friendly CSS is applied."
+        },
+        {
+          "path": "frontend/src/pages/SalesPage.tsx",
+          "operation": "modify",
+          "description": "Integrate receipt modal to display after successful sale submission. Add action buttons to sales history rows for viewing past receipts. Pass sale data to ReceiptModal component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement employee management UI with shift timing and attendance tracking",
+      "acceptanceCriteria": [
+        "Record employee shift start and end times",
+        "Track attendance with check-in/check-out functionality",
+        "Maintain employee roster with shift assignments"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployeesPage.tsx",
+          "operation": "create",
+          "description": "Create employee management page displaying employee roster with name, role, branch, and current shift status. Include admin-only create employee form using authorization component to verify admin role before showing management functions. Fetch employee list using getEmployees backend method."
+        },
+        {
+          "path": "frontend/src/components/EmployeeList.tsx",
+          "operation": "create",
+          "description": "Create table component displaying all employees with columns for ID, name, role, branch assignment, and action buttons for admin users. Include search and filter functionality by branch and role."
+        },
+        {
+          "path": "frontend/src/components/AttendanceTracker.tsx",
+          "operation": "create",
+          "description": "Create attendance tracking component with check-in and check-out buttons, displaying current shift start time and duration. Store shift records in local state and display shift history. Show current employee's attendance status."
+        },
+        {
+          "path": "frontend/src/hooks/useEmployees.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for employee operations: useGetEmployees query for fetching employee list, useCreateEmployee mutation for adding new employees. Verify authorization component usage instructions before implementing admin-only mutations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create employee sales performance reporting UI showing individual metrics",
+      "acceptanceCriteria": [
+        "Track sales per employee per shift",
+        "Display sales volume and revenue by employee",
+        "Generate performance comparison reports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PerformanceReportsPage.tsx",
+          "operation": "create",
+          "description": "Create employee performance dashboard displaying sales metrics per employee including total sales count, fuel volume sold, revenue generated, and ranking. Use authorization component to ensure authenticated access. Allow filtering by date range and branch. Calculate metrics from sales data fetched via getBranchSales."
+        },
+        {
+          "path": "frontend/src/components/EmployeePerformanceCard.tsx",
+          "operation": "create",
+          "description": "Create card component displaying individual employee performance metrics including employee name, total sales, fuel volume, revenue, and performance trend. Show comparison indicator against average or target."
+        },
+        {
+          "path": "frontend/src/hooks/usePerformanceReports.ts",
+          "operation": "create",
+          "description": "Create custom hook that processes sales data to calculate employee-level performance metrics. Aggregate sales by employee Principal, calculate totals, and provide sorting and filtering functions. Use data from useGetBranchSales."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build customer loyalty program UI with points accumulation display",
+      "acceptanceCriteria": [
+        "Award points to customers based on fuel purchases",
+        "Track customer point balances",
+        "Allow redemption of points for discounts or rewards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoyaltyPage.tsx",
+          "operation": "create",
+          "description": "Create loyalty program management page displaying member list with name, phone, membership ID, and current point balance. Include admin interface for awarding points and viewing point transaction history. Use authorization component to ensure authenticated access. Fetch members using getLoyaltyMembers backend method."
+        },
+        {
+          "path": "frontend/src/components/LoyaltyMemberCard.tsx",
+          "operation": "create",
+          "description": "Create card component displaying loyalty member information including name, membership ID, phone number, total points, and action buttons for adding points or viewing transaction history. Show points balance prominently."
+        },
+        {
+          "path": "frontend/src/components/PointsTransactionModal.tsx",
+          "operation": "create",
+          "description": "Create modal component for adding loyalty points to a member account. Include form fields for points amount, reason, and optional sale ID linking. Submit using addLoyaltyPoints backend method. Display success confirmation."
+        },
+        {
+          "path": "frontend/src/hooks/useLoyalty.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for loyalty operations: useGetLoyaltyMembers query for fetching member list, useAddLoyaltyPoints mutation for awarding points, useGetPointTransactions query for fetching transaction history per member."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Implement membership card management UI for loyalty program",
+      "acceptanceCriteria": [
+        "Register customers with unique membership IDs",
+        "Link loyalty points to customer accounts",
+        "Display customer membership status and rewards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RegisterMemberForm.tsx",
+          "operation": "create",
+          "description": "Create form component for registering new loyalty members with input fields for name and phone number. Call registerLoyaltyMember backend method on submission, which returns unique membership ID. Display generated membership ID after successful registration."
+        },
+        {
+          "path": "frontend/src/pages/LoyaltyPage.tsx",
+          "operation": "modify",
+          "description": "Integrate RegisterMemberForm component in loyalty page, accessible to authenticated staff. Include member search functionality by phone or membership ID to quickly look up existing members."
+        },
+        {
+          "path": "frontend/src/components/MemberDetailsView.tsx",
+          "operation": "create",
+          "description": "Create detailed member view component displaying full membership information including ID, registration date, name, phone, total points accumulated, point transaction history, and redemption options. Fetch transaction history using getLoyaltyPointTransactions backend method."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create comprehensive reporting dashboard with sales reports",
+      "acceptanceCriteria": [
+        "Generate sales reports for selectable date ranges (daily, weekly, monthly)",
+        "Display total fuel sold by type and total revenue",
+        "Provide export functionality for reports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ReportsPage.tsx",
+          "operation": "create",
+          "description": "Create reporting dashboard page with date range selector (daily, weekly, monthly), report type selector, and branch filter. Display aggregated sales data including total revenue, fuel volumes by type, transaction counts, and payment method breakdown. Use authorization component to ensure authenticated access. Fetch data using getBranchSales backend method."
+        },
+        {
+          "path": "frontend/src/components/SalesReportSummary.tsx",
+          "operation": "create",
+          "description": "Create summary card grid displaying key sales metrics including total revenue, petrol volume sold, diesel volume sold, total transactions, and breakdown by payment method. Accept filtered sales data as props and calculate aggregations on frontend."
+        },
+        {
+          "path": "frontend/src/components/ReportExport.tsx",
+          "operation": "create",
+          "description": "Create export functionality component with buttons to download reports as CSV or JSON format. Process sales data into exportable format and trigger browser download. Accept report data and date range as props."
+        },
+        {
+          "path": "frontend/src/hooks/useReports.ts",
+          "operation": "create",
+          "description": "Create custom hook for processing and aggregating sales data into report format. Provide functions for filtering by date range, calculating totals, grouping by fuel type and payment method, and formatting for display or export."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement profit and loss analysis reporting UI",
+      "acceptanceCriteria": [
+        "Calculate revenue from fuel sales",
+        "Track operational costs and expenses",
+        "Display profit margins and net profit/loss"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProfitLossPage.tsx",
+          "operation": "create",
+          "description": "Create profit and loss analysis page displaying revenue, costs, and net profit calculations. Show revenue from sales data, allow manual cost entry for operations, and calculate profit margins. Include date range filtering and branch selection. Use authorization component to restrict access to admin users only. Fetch sales revenue using getBranchSales backend method."
+        },
+        {
+          "path": "frontend/src/components/ProfitLossStatement.tsx",
+          "operation": "create",
+          "description": "Create financial statement component displaying revenue items, expense items, gross profit, operating profit, and net profit/loss. Format as traditional P&L statement with clear sections and totals. Accept revenue and expense data as props and calculate profit margins."
+        },
+        {
+          "path": "frontend/src/hooks/useProfitLoss.ts",
+          "operation": "create",
+          "description": "Create custom hook for calculating profit and loss metrics from sales data. Compute total revenue, gross profit margins, and net profit based on cost inputs. Provide aggregation functions for different time periods."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Build tax and GST reporting UI calculating tax liabilities",
+      "acceptanceCriteria": [
+        "Calculate GST on fuel sales transactions",
+        "Generate tax reports for specified periods",
+        "Display tax breakdowns by category"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TaxReportsPage.tsx",
+          "operation": "create",
+          "description": "Create GST reporting page displaying tax calculations for selected date range. Show total sales, GST collected by fuel type, input tax credit, and net tax liability. Include export functionality for tax filing. Use authorization component to restrict to admin users only. Calculate GST from sales data fetched via getBranchSales."
+        },
+        {
+          "path": "frontend/src/components/GSTCalculator.tsx",
+          "operation": "create",
+          "description": "Create component displaying GST breakdown including taxable amount, GST rate, GST amount, and total with tax for each transaction or aggregated total. Show separate calculations for petrol and diesel sales."
+        },
+        {
+          "path": "frontend/src/hooks/useTaxReports.ts",
+          "operation": "create",
+          "description": "Create custom hook for calculating GST and tax metrics from sales data. Aggregate GST amounts by fuel type and time period, calculate tax liabilities, and format data for tax report display and export."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create fuel price management UI allowing manual price updates",
+      "acceptanceCriteria": [
+        "Admin interface to update fuel prices",
+        "Price changes take effect immediately for new transactions",
+        "Maintain price history for auditing"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PriceManagementPage.tsx",
+          "operation": "create",
+          "description": "Create price management page displaying current petrol and diesel prices for each branch. Include admin-only form for updating prices per branch using authorization component to verify admin role. Show price change history and confirmation dialog before applying updates. Call updateFuelPrices backend method on submission."
+        },
+        {
+          "path": "frontend/src/components/PriceUpdateForm.tsx",
+          "operation": "create",
+          "description": "Create form component for updating fuel prices with numeric inputs for petrol and diesel prices, branch selector, and confirmation button. Display current prices for comparison. Validate price inputs and show price change percentage."
+        },
+        {
+          "path": "frontend/src/hooks/useFuelPrices.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for price operations: useUpdateFuelPrices mutation for updating prices per branch. Include cache invalidation to refresh branch data after price updates. Verify authorization component usage instructions before implementing admin-only mutations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Implement emergency alert UI for critical events",
+      "acceptanceCriteria": [
+        "Allow manual triggering of emergency alerts",
+        "Display alerts prominently across the application",
+        "Log alert history with timestamps and descriptions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EmergencyAlert.tsx",
+          "operation": "create",
+          "description": "Create emergency alert banner component that displays at the top of all pages when active. Show alert message, severity level, timestamp, and dismiss button. Use prominent styling with high contrast colors for visibility. Store active alerts in React context or global state."
+        },
+        {
+          "path": "frontend/src/components/EmergencyAlertTrigger.tsx",
+          "operation": "create",
+          "description": "Create emergency alert trigger component with button to manually create alerts and form to specify alert type (leakage, safety issue, etc.) and description. Restrict to authenticated staff using authorization component. Store alerts in frontend state and display via EmergencyAlert component."
+        },
+        {
+          "path": "frontend/src/contexts/EmergencyAlertContext.tsx",
+          "operation": "create",
+          "description": "Create React context for managing emergency alert state across the application. Provide functions to trigger new alerts, dismiss alerts, and retrieve alert history. Store alerts in local state with timestamps and maintain history log."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application with EmergencyAlertContext provider. Include EmergencyAlert component at the top level of the app layout so alerts display on all pages. Ensure alert banner is always visible when active."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Build multi-branch management UI for managing multiple locations",
+      "acceptanceCriteria": [
+        "Register and manage multiple pump branches",
+        "View consolidated reports across all branches",
+        "Switch between branch views in the interface"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BranchesPage.tsx",
+          "operation": "create",
+          "description": "Create branch management page displaying list of all branches with name, location, and current stock levels. Include admin-only form for creating new branches using authorization component to verify admin role. Fetch branch list using getBranches backend method."
+        },
+        {
+          "path": "frontend/src/components/BranchSelector.tsx",
+          "operation": "create",
+          "description": "Create branch selector dropdown component that allows users to switch active branch context. Store selected branch in React context or global state. Display current branch name prominently. Show branch selector in navigation or header area."
+        },
+        {
+          "path": "frontend/src/contexts/BranchContext.tsx",
+          "operation": "create",
+          "description": "Create React context for managing selected branch state across the application. Provide current branch ID and functions to switch branches. Ensure branch selection persists across page navigation."
+        },
+        {
+          "path": "frontend/src/components/CreateBranchForm.tsx",
+          "operation": "create",
+          "description": "Create form component for adding new branches with input fields for branch ID, name, and location. Call createBranch backend method on submission. Display success confirmation and refresh branch list after creation."
+        },
+        {
+          "path": "frontend/src/hooks/useBranches.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for branch operations: useGetBranches query for fetching branch list, useCreateBranch mutation for adding branches, useUpdateBranchStock mutation for manual stock adjustments. Verify authorization component usage instructions before implementing admin-only mutations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application with BranchContext provider to enable branch selection across the app. Add BranchSelector component to the main navigation header for easy branch switching."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Create pump location finder UI showing branch locations",
+      "acceptanceCriteria": [
+        "Display list of pump branches with addresses",
+        "Show distance information for each branch",
+        "Provide visual map or location markers"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LocationsPage.tsx",
+          "operation": "create",
+          "description": "Create public location finder page displaying all pump branches with name, address, and static location information. No authentication required. Show branch list as cards with location details. Since GPS/maps API is not supported, display static text addresses without interactive maps. Fetch branch data using getBranches backend method."
+        },
+        {
+          "path": "frontend/src/components/BranchLocationCard.tsx",
+          "operation": "create",
+          "description": "Create card component for displaying individual branch location details including branch name, full address, and placeholder for distance information (displayed as text since real GPS is not supported). Include visual icon or marker for each branch."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Implement public fuel price display showing current prices",
+      "acceptanceCriteria": [
+        "Display current fuel prices publicly without authentication",
+        "Show prices for all fuel types",
+        "Update prices when admin changes them"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PublicPricesPage.tsx",
+          "operation": "create",
+          "description": "Create public-facing page displaying current petrol and diesel prices for all branches. No authentication required - this page is accessible to guest users. Show prices in large, prominent format with branch name. Auto-refresh price data periodically. Fetch branch price data using getBranches backend method."
+        },
+        {
+          "path": "frontend/src/components/PriceDisplayCard.tsx",
+          "operation": "create",
+          "description": "Create card component displaying fuel prices with large typography. Show fuel type icon, price per liter, and last updated timestamp. Use contrasting colors for petrol and diesel. Include branch name for context."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Build pre-booking UI for large vehicle fuel orders",
+      "acceptanceCriteria": [
+        "Allow customers to create fuel reservations with vehicle details",
+        "Specify fuel type, quantity, and preferred time slot",
+        "Display upcoming reservations in staff dashboard"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PrebookingPage.tsx",
+          "operation": "create",
+          "description": "Create prebooking management page showing upcoming reservations for staff. Display booking details including customer name, contact, fuel type, quantity, and required delivery date. Allow status updates. Use authorization component to restrict access to authenticated users. Fetch bookings using getBranchBookings backend method."
+        },
+        {
+          "path": "frontend/src/components/CreatePrebookingForm.tsx",
+          "operation": "create",
+          "description": "Create prebooking form component with fields for customer name, contact number, fuel type selection, quantity input, and required delivery date picker. Call createPrebooking backend method on submission. Display confirmation with booking ID after successful creation."
+        },
+        {
+          "path": "frontend/src/components/PrebookingList.tsx",
+          "operation": "create",
+          "description": "Create table component displaying all prebookings with columns for booking ID, customer name, contact, fuel type, quantity, required date, and status. Include action buttons for updating status. Show filtering options by status and date."
+        },
+        {
+          "path": "frontend/src/hooks/usePrebooking.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for prebooking operations: useGetBranchBookings query for fetching reservations, useCreatePrebooking mutation for creating bookings, useUpdatePrebookingStatus mutation for changing booking status."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Design cohesive visual theme with professional styling",
+      "acceptanceCriteria": [
+        "Consistent color palette applied throughout the application",
+        "Professional typography suitable for business management software",
+        "Layout and UI patterns appropriate for fuel station operations"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define application-wide CSS custom properties for color scheme avoiding blue and purple, using warm earth tones (amber, orange, green, gray) suitable for fuel industry. Set typography hierarchy with professional sans-serif fonts. Apply base styles for consistent spacing, shadows, and transitions. Reference generated hero background from frontend/public/assets/generated/dashboard-hero.dim_1920x400.png in relevant sections."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom color palette including primary (amber/orange tones), secondary (green tones), neutral (grays), and semantic colors (success, warning, danger). Configure typography scale for headings and body text. Add custom spacing and border radius values for professional business UI feel."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component providing consistent structure across all pages including header with fuel pump logo from frontend/public/assets/generated/fuel-pump-logo.dim_256x256.png, navigation sidebar, main content area, and footer. Include BranchSelector and user authentication status in header. Apply global theme styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent theme and structure across the application. Set up routing for all pages including dashboard, sales, inventory, employees, loyalty, reports, and public pages."
+        }
+      ]
+    }
+  ]
+}

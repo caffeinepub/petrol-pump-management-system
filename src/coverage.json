@@ -1,0 +1,448 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-21T05:44:04.570Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 19,
+    "implemented": 19,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Implement fuel sales recording system for petrol and diesel with automatic stock deduction upon each sale transaction",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/SalesPage.tsx",
+          "frontend/src/components/SalesForm.tsx",
+          "frontend/src/components/SalesHistory.tsx",
+          "frontend/src/hooks/useSales.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/SalesPage.tsx",
+          "frontend/src/components/SalesForm.tsx",
+          "frontend/src/components/SalesHistory.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Create comprehensive reporting dashboard with daily, weekly, and monthly sales reports including fuel volumes and revenue",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ReportsPage.tsx",
+          "frontend/src/components/SalesReportSummary.tsx",
+          "frontend/src/components/ReportExport.tsx",
+          "frontend/src/hooks/useReports.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ReportsPage.tsx",
+          "frontend/src/components/SalesReportSummary.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Implement profit and loss analysis reporting showing revenue, costs, and net profit margins",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ProfitLossPage.tsx",
+          "frontend/src/components/ProfitLossStatement.tsx",
+          "frontend/src/hooks/useProfitLoss.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ProfitLossPage.tsx",
+          "frontend/src/components/ProfitLossStatement.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Build tax and GST reporting module calculating and displaying tax liabilities based on sales data",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/TaxReportsPage.tsx",
+          "frontend/src/components/GSTCalculator.tsx",
+          "frontend/src/hooks/useTaxReports.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/TaxReportsPage.tsx",
+          "frontend/src/components/GSTCalculator.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Create fuel price management system allowing manual updates of petrol and diesel prices that apply to future transactions",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PriceManagementPage.tsx",
+          "frontend/src/components/PriceUpdateForm.tsx",
+          "frontend/src/hooks/useFuelPrices.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PriceManagementPage.tsx",
+          "frontend/src/components/PriceUpdateForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Implement emergency alert system for critical events such as fuel leakage or safety issues with prominent notifications",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/EmergencyAlert.tsx",
+          "frontend/src/components/EmergencyAlertTrigger.tsx",
+          "frontend/src/contexts/EmergencyAlertContext.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/EmergencyAlert.tsx",
+          "frontend/src/contexts/EmergencyAlertContext.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Build multi-branch management functionality allowing owners to manage multiple petrol pump locations from a single interface",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/BranchesPage.tsx",
+          "frontend/src/components/BranchSelector.tsx",
+          "frontend/src/contexts/BranchContext.tsx",
+          "frontend/src/components/CreateBranchForm.tsx",
+          "frontend/src/hooks/useBranches.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/BranchesPage.tsx",
+          "frontend/src/components/BranchSelector.tsx",
+          "frontend/src/contexts/BranchContext.tsx",
+          "frontend/src/components/CreateBranchForm.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Create pump location finder feature showing nearby petrol pumps on a map with address and distance information",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LocationsPage.tsx",
+          "frontend/src/components/BranchLocationCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LocationsPage.tsx",
+          "frontend/src/components/BranchLocationCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Implement public fuel price display showing current petrol and diesel prices at each pump location",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PublicPricesPage.tsx",
+          "frontend/src/components/PriceDisplayCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PublicPricesPage.tsx",
+          "frontend/src/components/PriceDisplayCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Build pre-booking and reservation system for large vehicle fuel orders such as trucks and buses",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PrebookingPage.tsx",
+          "frontend/src/components/CreatePrebookingForm.tsx",
+          "frontend/src/components/PrebookingList.tsx",
+          "frontend/src/hooks/usePrebooking.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PrebookingPage.tsx",
+          "frontend/src/components/CreatePrebookingForm.tsx",
+          "frontend/src/components/PrebookingList.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Design a cohesive visual theme for the petrol station management application with a professional color scheme (avoiding blue and purple), clean typography, and industry-appropriate styling that works across dashboards, reports, and customer-facing interfaces",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Create real-time inventory monitoring showing current fuel levels in each tank with visual indicators",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/InventoryPage.tsx",
+          "frontend/src/components/FuelGauge.tsx",
+          "frontend/src/hooks/useInventory.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/InventoryPage.tsx",
+          "frontend/src/components/FuelGauge.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement automated re-order alert system that triggers notifications when fuel stock falls below configured threshold levels",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/StockAlerts.tsx",
+          "frontend/src/pages/InventoryPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/StockAlerts.tsx",
+          "frontend/src/pages/InventoryPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Build billing system supporting multiple payment methods including cash, card, UPI, and wallet payments with payment tracking",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SalesForm.tsx",
+          "frontend/src/components/PaymentSummary.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SalesForm.tsx",
+          "frontend/src/components/PaymentSummary.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Create digital receipt generation system with transaction details, fuel type, quantity, price, and payment information",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Receipt.tsx",
+          "frontend/src/components/ReceiptModal.tsx",
+          "frontend/src/pages/SalesPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Receipt.tsx",
+          "frontend/src/components/ReceiptModal.tsx",
+          "frontend/src/pages/SalesPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement employee management system with shift timing records and attendance tracking functionality",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/EmployeesPage.tsx",
+          "frontend/src/components/EmployeeList.tsx",
+          "frontend/src/components/AttendanceTracker.tsx",
+          "frontend/src/hooks/useEmployees.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/EmployeesPage.tsx",
+          "frontend/src/components/EmployeeList.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Create employee sales performance reporting showing individual sales metrics and targets",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PerformanceReportsPage.tsx",
+          "frontend/src/components/EmployeePerformanceCard.tsx",
+          "frontend/src/hooks/usePerformanceReports.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PerformanceReportsPage.tsx",
+          "frontend/src/components/EmployeePerformanceCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Build customer loyalty program with points accumulation system based on purchase volume and value",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoyaltyPage.tsx",
+          "frontend/src/components/LoyaltyMemberCard.tsx",
+          "frontend/src/components/PointsTransactionModal.tsx",
+          "frontend/src/hooks/useLoyalty.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoyaltyPage.tsx",
+          "frontend/src/components/LoyaltyMemberCard.tsx",
+          "frontend/src/components/PointsTransactionModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Implement membership card management system for customer loyalty program with unique customer IDs and reward tracking",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/RegisterMemberForm.tsx",
+          "frontend/src/pages/LoyaltyPage.tsx",
+          "frontend/src/components/MemberDetailsView.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/RegisterMemberForm.tsx",
+          "frontend/src/pages/LoyaltyPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/blob-storage/Mixin.mo",
+    "backend/blob-storage/Storage.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/dashboard-hero.dim_1920x400.png",
+    "frontend/public/assets/generated/fuel-gauge.dim_400x400.png",
+    "frontend/public/assets/generated/fuel-pump-logo.dim_256x256.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/BranchList.tsx",
+    "frontend/src/components/BranchLocationCard.tsx",
+    "frontend/src/components/BranchSelector.tsx",
+    "frontend/src/components/CreateBranchForm.tsx",
+    "frontend/src/components/CreateEmployeeForm.tsx",
+    "frontend/src/components/CreatePrebookingForm.tsx",
+    "frontend/src/components/EmergencyAlert.tsx",
+    "frontend/src/components/EmployeeList.tsx",
+    "frontend/src/components/EmployeePerformanceCard.tsx",
+    "frontend/src/components/FuelGauge.tsx",
+    "frontend/src/components/GSTCalculator.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/LoyaltyMemberCard.tsx",
+    "frontend/src/components/LoyaltyMemberList.tsx",
+    "frontend/src/components/PaymentSummary.tsx",
+    "frontend/src/components/PointsTransactionModal.tsx",
+    "frontend/src/components/PrebookingList.tsx",
+    "frontend/src/components/PriceDisplayCard.tsx",
+    "frontend/src/components/PriceUpdateForm.tsx",
+    "frontend/src/components/ProfileSetup.tsx",
+    "frontend/src/components/ProfitLossStatement.tsx",
+    "frontend/src/components/Receipt.tsx",
+    "frontend/src/components/ReceiptModal.tsx",
+    "frontend/src/components/RegisterMemberForm.tsx",
+    "frontend/src/components/SalesForm.tsx",
+    "frontend/src/components/SalesHistory.tsx",
+    "frontend/src/components/SalesReportSummary.tsx",
+    "frontend/src/components/StockAlerts.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/contexts/BranchContext.tsx",
+    "frontend/src/contexts/EmergencyAlertContext.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/BranchesPage.tsx",
+    "frontend/src/pages/DashboardPage.tsx",
+    "frontend/src/pages/EmployeesPage.tsx",
+    "frontend/src/pages/InventoryPage.tsx",
+    "frontend/src/pages/LocationsPage.tsx",
+    "frontend/src/pages/LoyaltyPage.tsx",
+    "frontend/src/pages/PerformanceReportsPage.tsx",
+    "frontend/src/pages/PrebookingPage.tsx",
+    "frontend/src/pages/PriceManagementPage.tsx",
+    "frontend/src/pages/ProfitLossPage.tsx",
+    "frontend/src/pages/PublicPricesPage.tsx",
+    "frontend/src/pages/ReportsPage.tsx",
+    "frontend/src/pages/SalesPage.tsx",
+    "frontend/src/pages/TaxReportsPage.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
